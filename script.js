@@ -1,5 +1,5 @@
 // ⚠️ CONFIGURA: URL del teu Google Apps Script desplegat
-const SCRIPT_URL = 'https://script.google.com/macros/s/TEU_SCRIPT_ID/exec';
+const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyeOiU5mpQWsgsusaXVEi3Z0jKDAOvidn538lJnUP5tzNxopevmEadG7kOi5D15knii/exec';
 
 // Variables globals
 let immobleSeleccionat = 'Loft Barcelona';
