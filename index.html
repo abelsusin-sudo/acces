@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Reserves</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🏠 Sistema de Reserves</h1>
+            <p>Fes la teva reserva online</p>
+        </header>
+
+        <!-- Selecció d'Immoble -->
+        <section class="section" id="seleccio-immoble">
+            <h2>Selecciona el teu allotjament</h2>
+            <div class="immobles-container">
+                <button class="btn-immoble seleccionat" data-immoble="Loft Barcelona">
+                    <h3>Loft Barcelona</h3>
+                    <p>120€ per nit</p>
+                </button>
+                <button class="btn-immoble" data-immoble="Habitació Gràcia">
+                    <h3>Habitació Gràcia</h3>
+                    <p>85€ per nit</p>
+                </button>
+            </div>
+            <button class="btn-continuar" onclick="mostrarSeccio('seleccio-dates')">
+                Continuar →
+            </button>
+        </section>
+
+        <!-- Selecció de Dates -->
+        <section class="section hidden" id="seleccio-dates">
+            <h2>Selecciona les teves dates</h2>
+            
+            <div class="dates-container">
+                <div class="data-input">
+                    <label>Data d'entrada:</label>
+                    <input type="text" id="data-inici" readonly placeholder="Clica per seleccionar">
+                </div>
+                
+                <div class="data-input">
+                    <label>Data de sortida:</label>
+                    <input type="text" id="data-fi" readonly placeholder="Clica per seleccionar">
+                </div>
+            </div>
+
+            <div class="calendar-container">
+                <div class="calendari" id="calendari-inici"></div>
+                <div class="calendari" id="calendari-fi"></div>
+            </div>
+
+            <div id="missatge-disponibilitat" class="missatge"></div>
+
+            <div class="botons-navegacio">
+                <button class="btn-secundari" onclick="mostrarSeccio('seleccio-immoble')">
+                    ← Tornar
+                </button>
+                <button class="btn-continuar" id="boto-continuar-dates" onclick="mostrarSeccio('formulari-reserva')">
+                    Continuar →
+                </button>
+            </div>
+        </section>
+
+        <!-- Formulari de Reserva -->
+        <section class="section hidden" id="formulari-reserva">
+            <h2>Completa les teves dades</h2>
+            
+            <div class="resum-reserva" id="resum-reserva">
+                <h3>Resum de la teva reserva</h3>
+                <p><strong>Immoble:</strong> <span id="resum-immoble"></span></p>
+                <p><strong>Entrada:</strong> <span id="resum-data-inici"></span></p>
+                <p><strong>Sortida:</strong> <span id="resum-data-fi"></span></p>
+                <p><strong>Nits:</strong> <span id="resum-nits"></span></p>
+                <p><strong>Total:</strong> <span id="resum-total"></span> €</p>
+            </div>
+
+            <form class="formulari">
+                <div class="grup-formulari">
+                    <label for="nom">Nom complet *</label>
+                    <input type="text" id="nom" required>
+                </div>
+
+                <div class="grup-formulari">
+                    <label for="email">Email *</label>
+                    <input type="email" id="email" required>
+                </div>
+
+                <div class="grup-formulari">
+                    <label for="telefon">Telèfon *</label>
+                    <input type="tel" id="telefon" required>
+                </div>
+            </form>
+
+            <div id="missatge-reserva" class="missatge"></div>
+
+            <div class="botons-navegacio">
+                <button class="btn-secundari" onclick="mostrarSeccio('seleccio-dates')">
+                    ← Tornar
+                </button>
+                <button class="btn-primari" id="btn-reservar" onclick="ferReserva()">
+                    🚀 Confirmar Reserva
+                </button>
+            </div>
+        </section>
+
+        <!-- Confirmació -->
+        <section class="section hidden" id="confirmacio">
+            <div class="confirmacio-container">
+                <div class="icona-exit">✅</div>
+                <h2>Reserva confirmada!</h2>
+                <p id="missatge-confirmacio"></p>
+                <button class="btn-primari" onclick="reiniciarProces()">
+                    Fer una nova reserva
+                </button>
+            </div>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
