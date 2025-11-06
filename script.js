@@ -8,6 +8,10 @@ let datesOcupades = [];
 let dataIniciSeleccionada = null;
 let dataFiSeleccionada = null;
 
+// Variables globals del calendari
+let mesActual = new Date().getMonth();
+let anyActual = new Date().getFullYear();
+
 // Inicialització
 document.addEventListener('DOMContentLoaded', function() {
     inicialitzarBotonsImmoble();
@@ -340,7 +344,3 @@ function reiniciarProces() {
     document.getElementById('missatge-reserva').style.display = 'none';
     mostrarSeccio('seleccio-immoble');
 }
-
-// Variables globals del calendari
-let mesActual = new Date().getMonth();
-let anyActual = new Date().getFullYear();
