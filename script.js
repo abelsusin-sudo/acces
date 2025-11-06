@@ -57,23 +57,21 @@ function mostrarSeccio(seccioId) {
 // Funcions per comunicar amb Google Apps Script
 async function ferPeticioGS(accio, parametres = {}) {
     try {
-        const url = new URL(SCRIPT_URL);
-        url.searchParams.append('action', accio);
-        
-        Object.keys(parametres).forEach(key => {
-            url.searchParams.append(key, parametres[key]);
+        const response = await fetch(SCRIPT_URL, {
+            method: 'POST',
+            mode: 'no-cors',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: new URLSearchParams({
+                action: accio,
+                ...parametres
+            })
         });
         
-        const response = await fetch(url.toString(), {
-            method: 'GET',
-            mode: 'cors'
-        });
-        
-        if (!response.ok) {
-            throw new Error(`Error HTTP: ${response.status}`);
-        }
-        
-        return await response.json();
+        // Amb 'no-cors' no podràs llegir la resposta directament
+        // Haurem de canviar l'enfocament
+        return { exit: true }; // Resposta temporal
         
     } catch (error) {
         console.error('Error en ferPeticioGS:', error);
