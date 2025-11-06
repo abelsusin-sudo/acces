@@ -1,0 +1,336 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 40px;
+    color: white;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+header p {
+    font-size: 1.2rem;
+    opacity: 0.9;
+}
+
+.section {
+    background: white;
+    border-radius: 15px;
+    padding: 40px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    margin-bottom: 20px;
+}
+
+.hidden {
+    display: none;
+}
+
+.immobles-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin: 30px 0;
+}
+
+.btn-immoble {
+    background: #f8f9fa;
+    border: 2px solid #e9ecef;
+    border-radius: 10px;
+    padding: 25px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-immoble:hover {
+    border-color: #667eea;
+    transform: translateY(-2px);
+}
+
+.btn-immoble.seleccionat {
+    border-color: #667eea;
+    background: #667eea;
+    color: white;
+}
+
+.btn-immoble h3 {
+    margin-bottom: 10px;
+    font-size: 1.3rem;
+}
+
+.dates-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin: 20px 0;
+}
+
+.data-input {
+    display: flex;
+    flex-direction: column;
+}
+
+.data-input label {
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+.data-input input {
+    padding: 12px;
+    border: 2px solid #e9ecef;
+    border-radius: 8px;
+    font-size: 1rem;
+    background: #f8f9fa;
+}
+
+.calendar-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin: 30px 0;
+}
+
+.calendari {
+    border: 1px solid #e9ecef;
+    border-radius: 10px;
+    padding: 20px;
+    background: #f8f9fa;
+}
+
+.calendari-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.btn-nav {
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 5px 10px;
+}
+
+.dies-setmana {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    text-align: center;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.dies-mes {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
+}
+
+.dia {
+    padding: 8px;
+    text-align: center;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.dia:hover:not(.buit):not(.passat):not(.ocupat) {
+    background: #e9ecef;
+}
+
+.dia.seleccionat {
+    background: #667eea;
+    color: white;
+}
+
+.dia.avui {
+    background: #ffc107;
+    color: #000;
+}
+
+.dia.passat {
+    color: #ccc;
+    cursor: not-allowed;
+}
+
+.dia.ocupat {
+    background: #dc3545;
+    color: white;
+    cursor: not-allowed;
+}
+
+.dia.buit {
+    visibility: hidden;
+}
+
+.resum-reserva {
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+}
+
+.resum-reserva h3 {
+    margin-bottom: 15px;
+    color: #667eea;
+}
+
+.formulari {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.grup-formulari {
+    display: flex;
+    flex-direction: column;
+}
+
+.grup-formulari label {
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+.grup-formulari input {
+    padding: 12px;
+    border: 2px solid #e9ecef;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+}
+
+.grup-formulari input:focus {
+    outline: none;
+    border-color: #667eea;
+}
+
+.botons-navegacio {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+}
+
+.btn-primari, .btn-secundari, .btn-continuar {
+    padding: 12px 30px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-primari {
+    background: #667eea;
+    color: white;
+}
+
+.btn-primari:hover {
+    background: #5a6fd8;
+    transform: translateY(-2px);
+}
+
+.btn-secundari {
+    background: #6c757d;
+    color: white;
+}
+
+.btn-secundari:hover {
+    background: #5a6268;
+}
+
+.btn-continuar {
+    background: #28a745;
+    color: white;
+}
+
+.btn-continuar:hover {
+    background: #218838;
+}
+
+.missatge {
+    padding: 15px;
+    border-radius: 8px;
+    margin: 20px 0;
+    display: none;
+}
+
+.missatge.exit {
+    background: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.missatge.error {
+    background: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+.missatge.info {
+    background: #cce7ff;
+    color: #004085;
+    border: 1px solid #b3d7ff;
+}
+
+.confirmacio-container {
+    text-align: center;
+    padding: 40px;
+}
+
+.icona-exit {
+    font-size: 4rem;
+    margin-bottom: 20px;
+}
+
+.confirmacio-container h2 {
+    color: #28a745;
+    margin-bottom: 20px;
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+    
+    .section {
+        padding: 20px;
+    }
+    
+    .calendar-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .dates-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .botons-navegacio {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .botons-navegacio button {
+        width: 100%;
+    }
+}
